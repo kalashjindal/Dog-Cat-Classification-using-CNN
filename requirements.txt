@@ -1,6 +1,5 @@
 numpy
 pandas
-pickle
 cv2
 tensorflow
 matplotlib
