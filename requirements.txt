@@ -1,7 +1,7 @@
 numpy
 pandas
 opencv-python
-tensorflow
+tensorflow==1.14.0
 matplotlib
 keras
 Click==7.0
