@@ -3,26 +3,25 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from keras.models import load_model
-
 from flask import Flask,render_template,redirect,request
-
 import os
 
-
+#creating the app
 app=Flask(__name__)
-
+#configuring the image folder
 app.config["IMAGE_UPLOADS"] = "static/img/"
 
 
 CATEGORIES=['Dog','Cat']
 
-
+#preparing the image for the input in the model
 def prepare(image):
     img_size=100
     img_array=cv2.imread(image,cv2.IMREAD_GRAYSCALE)
     new_array=cv2.resize(img_array,(img_size,img_size))
     return new_array.reshape(-1,img_size,img_size,1)
 
+#calling the model
 model = tf.keras.models.load_model(r"Dogs_vs_Cats_500_final.model")
 
 
